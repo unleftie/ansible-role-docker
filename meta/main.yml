@@ -6,7 +6,7 @@ galaxy_info:
   author: unleftie
   description: Role for Docker setup
   company: ""
-  license: "license (BSD, MIT)"
+  license: "license (MIT)"
   min_ansible_version: "2.10"
   platforms:
     - name: Debian

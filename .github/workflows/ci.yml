@@ -114,6 +114,6 @@ jobs:
       - name: Run Ansible Molecule
         uses: ./gha_templates/ansible-molecule
         with:
-          gha_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           role_name: ${{ github.event.repository.name }}
           distro: ${{ matrix.distro }}

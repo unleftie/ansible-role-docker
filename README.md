@@ -20,12 +20,6 @@
 
 - iptables `required`
 
-## Repository secrets
-
-| Variable     | Description | Value  |
-| ------------ | ----------- | ------ |
-| GITHUB_TOKEN | xx          | string |
-
 ## Local Testing
 
 ```sh

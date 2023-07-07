@@ -5,44 +5,57 @@
       - docker
       - docker-engine
     state: absent
+  register: _progress_status
+  until: _progress_status is succeeded
+  retries: 5
 
 - name: Ensure dependencies are installed.
   apt:
     name:
       - apt-transport-https
       - ca-certificates
+      - curl
+      - apparmor
     state: present
+  register: _progress_status
+  until: _progress_status is succeeded
+  retries: 5
   when: docker_add_repo | bool
 
 - name: Ensure additional dependencies are installed (on Ubuntu < 20.04 and any other systems).
   apt:
     name: gnupg2
     state: present
+  register: _progress_status
+  until: _progress_status is succeeded
+  retries: 5
   when: ansible_distribution != 'Ubuntu' or ansible_distribution_version is version('20.04', '<')
 
 - name: Ensure additional dependencies are installed (on Ubuntu >= 20.04).
   apt:
     name: gnupg
     state: present
+  register: _progress_status
+  until: _progress_status is succeeded
+  retries: 5
   when: ansible_distribution == 'Ubuntu' and ansible_distribution_version is version('20.04', '>=')
 
 - name: Add Docker apt key.
-  ansible.builtin.get_url:
+  get_url:
     url: "{{ docker_apt_gpg_key }}"
     dest: /etc/apt/trusted.gpg.d/docker.asc
-    mode: '0644'
+    mode: "0644"
     force: true
   register: add_repository_key
+  until: add_repository_key is succeeded
+  retries: 5
   ignore_errors: "{{ docker_apt_ignore_key_error }}"
   when: docker_add_repo | bool
 
-- name: Ensure curl is present (on older systems without SNI).
-  package: name=curl state=present
-  when: add_repository_key is failed and docker_add_repo | bool
-
 - name: Add Docker apt key (alternative for older systems without SNI).
-  shell: >
-    curl -sSL {{ docker_apt_gpg_key }} | apt-key add -
+  shell: set -o pipefail && curl -sSL {{ docker_apt_gpg_key }} | apt-key add -
+  args:
+    executable: /bin/bash
   when: add_repository_key is failed and docker_add_repo | bool
 
 - name: Add Docker repository.

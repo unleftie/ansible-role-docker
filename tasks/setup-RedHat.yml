@@ -6,6 +6,9 @@
       - docker-common
       - docker-engine
     state: absent
+  register: _progress_status
+  until: _progress_status is succeeded
+  retries: 5
 
 - name: Add Docker GPG key.
   rpm_key:
@@ -16,28 +19,31 @@
 - name: Add Docker repository.
   get_url:
     url: "{{ docker_yum_repo_url }}"
-    dest: '/etc/yum.repos.d/docker-{{ docker_edition }}.repo'
+    dest: "/etc/yum.repos.d/docker-{{ docker_edition }}.repo"
     owner: root
     group: root
     mode: 0644
+  register: _progress_status
+  until: _progress_status is succeeded
+  retries: 5
   when: docker_add_repo | bool
 
 - name: Configure Docker Nightly repo.
   ini_file:
-    dest: '/etc/yum.repos.d/docker-{{ docker_edition }}.repo'
-    section: 'docker-{{ docker_edition }}-nightly'
+    dest: "/etc/yum.repos.d/docker-{{ docker_edition }}.repo"
+    section: "docker-{{ docker_edition }}-nightly"
     option: enabled
-    value: '{{ docker_yum_repo_enable_nightly }}'
+    value: "{{ docker_yum_repo_enable_nightly }}"
     mode: 0644
     no_extra_spaces: true
   when: docker_add_repo | bool
 
 - name: Configure Docker Test repo.
   ini_file:
-    dest: '/etc/yum.repos.d/docker-{{ docker_edition }}.repo'
-    section: 'docker-{{ docker_edition }}-test'
+    dest: "/etc/yum.repos.d/docker-{{ docker_edition }}.repo"
+    section: "docker-{{ docker_edition }}-test"
     option: enabled
-    value: '{{ docker_yum_repo_enable_test }}'
+    value: "{{ docker_yum_repo_enable_test }}"
     mode: 0644
     no_extra_spaces: true
   when: docker_add_repo | bool
@@ -48,9 +54,15 @@
       package:
         name: container-selinux
         state: present
+      register: _progress_status
+      until: _progress_status is succeeded
+      retries: 5
 
     - name: Ensure containerd.io is installed.
       package:
         name: containerd.io
         state: present
+      register: _progress_status
+      until: _progress_status is succeeded
+      retries: 5
   when: ansible_distribution_major_version | int == 8

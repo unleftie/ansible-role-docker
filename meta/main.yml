@@ -3,30 +3,21 @@ dependencies: []
 
 galaxy_info:
   role_name: docker
-  author: geerlingguy
-  description: Docker for Linux.
-  company: "Midwestern Mac, LLC"
+  author: unleftie
+  description: Role for Docker setup
+  company: ""
   license: "license (BSD, MIT)"
-  min_ansible_version: 2.10
+  min_ansible_version: "2.10"
   platforms:
-    - name: Fedora
-      versions:
-        - all
     - name: Debian
       versions:
-        - buster
-        - bullseye
+        - bookworm
     - name: Ubuntu
       versions:
-        - bionic
-        - focal
         - jammy
-    - name: Alpine
-      version:
-        - all
-    - name: ArchLinux
+    - name: EL
       versions:
-        - all
+        - "9"
   galaxy_tags:
     - web
     - system

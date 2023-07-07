@@ -1,0 +1,23 @@
+---
+service:
+  docker.service:
+    enabled: true
+    running: true
+  docker.socket:
+    enabled: true
+    running: true
+command:
+  docker:
+    exit-status: 0
+    exec: "docker --version"
+file:
+  /etc/docker/daemon.json:
+    exists: true
+    mode: "0644"
+    owner: root
+    group: root
+    filetype: file
+interface:
+  docker0:
+    exists: true
+    mtu: 1500

@@ -25,7 +25,6 @@
 ```sh
 git clone https://github.com/unleftie/ansible-role-docker.git
 cd ansible-role-docker/
-ansible-galaxy collection install -r requirements.yml
 molecule test
 ```
 

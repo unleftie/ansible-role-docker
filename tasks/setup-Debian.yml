@@ -7,7 +7,7 @@
     state: absent
   register: _progress_status
   until: _progress_status is succeeded
-  delay: 3
+  delay: 5
   retries: 5
 
 - name: Ensure dependencies are installed.
@@ -20,7 +20,7 @@
     state: present
   register: _progress_status
   until: _progress_status is succeeded
-  delay: 3
+  delay: 5
   retries: 5
   when: docker_add_repo | bool
 
@@ -30,7 +30,7 @@
     state: present
   register: _progress_status
   until: _progress_status is succeeded
-  delay: 3
+  delay: 5
   retries: 5
   when: ansible_distribution != 'Ubuntu' or ansible_distribution_version is version('20.04', '<')
 
@@ -40,7 +40,7 @@
     state: present
   register: _progress_status
   until: _progress_status is succeeded
-  delay: 3
+  delay: 5
   retries: 5
   when: ansible_distribution == 'Ubuntu' and ansible_distribution_version is version('20.04', '>=')
 
@@ -52,6 +52,7 @@
     force: true
   register: add_repository_key
   until: add_repository_key is succeeded
+  delay: 5
   retries: 5
   ignore_errors: "{{ docker_apt_ignore_key_error }}"
   when: docker_add_repo | bool

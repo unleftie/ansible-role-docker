@@ -22,7 +22,7 @@
     state: "{{ docker_packages_state }}"
   register: _progress_status
   until: _progress_status is succeeded
-  delay: 3
+  delay: 5
   retries: 5
   notify: restart docker
   ignore_errors: "{{ ansible_check_mode }}"
@@ -35,7 +35,7 @@
     allow_downgrade: true
   register: _progress_status
   until: _progress_status is succeeded
-  delay: 3
+  delay: 5
   retries: 5
   notify: restart docker
   ignore_errors: "{{ ansible_check_mode }}"
@@ -47,7 +47,7 @@
     state: "{{ docker_compose_package_state }}"
   register: _progress_status
   until: _progress_status is succeeded
-  delay: 3
+  delay: 5
   retries: 5
   notify: restart docker
   ignore_errors: "{{ ansible_check_mode }}"

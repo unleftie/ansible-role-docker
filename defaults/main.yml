@@ -59,3 +59,5 @@ docker_daemon_options:
   data-root: "/var/lib/docker"
   log-opts:
     max-size: "100m"
+
+docker_rootless: false

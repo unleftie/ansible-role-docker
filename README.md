@@ -1,7 +1,7 @@
 # Role for Docker setup
 
-[![CI](https://github.com/denysrondaliev/ansible-role-docker/actions/workflows/ci.yml/badge.svg)](https://github.com/denysrondaliev/ansible-role-docker/actions/workflows/ci.yml)
-[![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/denysrondaliev/ansible-role-docker/badge)](https://securityscorecards.dev/viewer/?uri=github.com/denysrondaliev/ansible-role-docker)
+[![CI](https://github.com/unleftie/ansible-role-docker/actions/workflows/ci.yml/badge.svg)](https://github.com/unleftie/ansible-role-docker/actions/workflows/ci.yml)
+[![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/unleftie/ansible-role-docker/badge)](https://securityscorecards.dev/viewer/?uri=github.com/unleftie/ansible-role-docker)
 
 ## Compatibility
 
@@ -22,7 +22,7 @@
 ## Local Testing
 
 ```sh
-git clone https://github.com/denysrondaliev/ansible-role-docker.git
+git clone https://github.com/unleftie/ansible-role-docker.git
 cd ansible-role-docker/
 molecule test
 ```

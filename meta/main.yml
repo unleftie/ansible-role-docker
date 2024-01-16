@@ -3,7 +3,7 @@ dependencies: []
 
 galaxy_info:
   role_name: docker
-  author: denysrondaliev
+  author: unleftie
   description: Role for Docker setup
   company: ""
   license: "license (MIT)"

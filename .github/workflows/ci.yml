@@ -58,6 +58,7 @@ jobs:
           path: ${{ env.KICS_SCAN_PATH }}
           fail_on: high
           output_formats: "json,sarif"
+          exclude_paths: ".github/workflows/scorecard.yml"
         continue-on-error: true
 
       - name: Upload to code-scanning

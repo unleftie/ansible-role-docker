@@ -31,8 +31,6 @@ molecule test
 
 > Upgradability notice: When upgrading from old version of this role, be aware that some files may be lost.
 
-To deploy the Docker on hosts, add the Datadog role to your playbook. Below are some sample playbooks to assist you with using the Docker Ansible role.
-
 ```yml
 - name: Sample 1
   hosts: all

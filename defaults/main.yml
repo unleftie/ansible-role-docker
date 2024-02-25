@@ -57,5 +57,9 @@ docker_users: []
 # Docker daemon options as a dict
 docker_daemon_options:
   data-root: "/var/lib/docker"
+  fixed-cidr-v6: "2001:db8:1::/64"
+  experimental: true
+  ipv6: true
+  ip6tables: true
   log-opts:
     max-size: "100m"

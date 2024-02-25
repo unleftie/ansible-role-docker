@@ -21,3 +21,6 @@ interface:
   docker0:
     exists: true
     mtu: 1500
+    addrs:
+      - 172.18.0.1/16
+      - 2001:db8:1::1/64

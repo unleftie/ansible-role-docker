@@ -23,7 +23,7 @@
     dest: "/etc/yum.repos.d/docker-{{ docker_edition }}.repo"
     owner: root
     group: root
-    mode: 0644
+    mode: "0644"
   register: _progress_status
   until: _progress_status is succeeded
   delay: 5
@@ -36,7 +36,7 @@
     section: "docker-{{ docker_edition }}-nightly"
     option: enabled
     value: "{{ docker_yum_repo_enable_nightly }}"
-    mode: 0644
+    mode: "0644"
     no_extra_spaces: true
   when: docker_add_repo | bool
 
@@ -46,7 +46,7 @@
     section: "docker-{{ docker_edition }}-test"
     option: enabled
     value: "{{ docker_yum_repo_enable_test }}"
-    mode: 0644
+    mode: "0644"
     no_extra_spaces: true
   when: docker_add_repo | bool
 

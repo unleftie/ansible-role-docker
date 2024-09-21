@@ -1,4 +1,4 @@
-# Role for Docker setup
+# Ansible Role for Docker setup
 
 [![CI](https://github.com/unleftie/ansible-role-docker/actions/workflows/ci.yml/badge.svg)](https://github.com/unleftie/ansible-role-docker/actions/workflows/ci.yml)
 [![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/unleftie/ansible-role-docker/badge)](https://securityscorecards.dev/viewer/?uri=github.com/unleftie/ansible-role-docker)

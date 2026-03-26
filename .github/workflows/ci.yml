@@ -61,17 +61,18 @@ jobs:
         uses: aquasecurity/trivy-action@0.35.0
         with:
           scan-type: fs
+          scanners: vuln,secret,misconfig
           scan-ref: ./
           format: sarif
-          output: results.sarif
-          # severity: HIGH,CRITICAL
+          output: trivy-results.sarif
+          severity: HIGH,CRITICAL
           exit-code: 1
         continue-on-error: true
 
       - name: Upload to code-scanning
         uses: github/codeql-action/upload-sarif@v4
         with:
-          sarif_file: results.sarif
+          sarif_file: trivy-results.sarif
 
   lint:
     name: Ansible Lint

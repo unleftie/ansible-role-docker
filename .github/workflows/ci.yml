@@ -57,7 +57,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
-      - name: Run Trivy scan
+      - name: Run Trivy
         uses: aquasecurity/trivy-action@0.35.0
         with:
           scan-type: fs

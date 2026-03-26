@@ -64,7 +64,7 @@ jobs:
           scanners: vuln,secret,misconfig
           scan-ref: ./
           format: sarif
-          output: trivy-results.sarif
+          output: results.sarif
           severity: HIGH,CRITICAL
           exit-code: 1
         continue-on-error: true
@@ -72,7 +72,7 @@ jobs:
       - name: Upload to code-scanning
         uses: github/codeql-action/upload-sarif@v4
         with:
-          sarif_file: trivy-results.sarif
+          sarif_file: results.sarif
 
   lint:
     name: Ansible Lint

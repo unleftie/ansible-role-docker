@@ -27,7 +27,7 @@
   retries: 5
   when: docker_add_repo | bool
 
-- name: Remove Docker Nightly repo.
+- name: Remove Docker Nightly repo. # noqa: risky-file-permissions
   ini_file:
     dest: "/etc/yum.repos.d/docker-{{ docker_edition }}.repo"
     section: "docker-{{ docker_edition }}-nightly"

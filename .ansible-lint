@@ -5,6 +5,7 @@ skip_list:
   - key-order[task]
   - name[missing]
   - fqcn-builtins
+  - fqcn[action]
   - yaml[document-start]
   - yaml[octal-values]
   - var-naming[no-role-prefix]

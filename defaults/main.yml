@@ -7,6 +7,7 @@ docker_packages:
   - "docker-{{ docker_edition }}-rootless-extras"
   - "containerd.io"
   - "docker-buildx-plugin"
+
 docker_packages_state: present
 docker_obsolete_packages:
   - docker
@@ -70,6 +71,5 @@ docker_daemon_options:
   log-opts:
     max-size: "100m"
   fixed-cidr-v6: "2001:db8:1::/64"
-  experimental: "{{ docker_enable_ipv6 }}"
   ipv6: "{{ docker_enable_ipv6 }}"
   ip6tables: "{{ docker_enable_ipv6 }}"

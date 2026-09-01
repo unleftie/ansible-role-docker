@@ -1,2 +1,13 @@
 ---
-# Empty file
+# overrides for geerlingguy.docker, see:
+# https://github.com/geerlingguy/ansible-role-docker/blob/master/defaults/main.yml
+docker_enable_ipv6: false
+docker_daemon_options:
+  data-root: "/var/lib/docker"
+  log-driver: "json-file"
+  log-opts:
+    max-size: "100m"
+    max-file: "3"
+  fixed-cidr-v6: "2001:db8:1::/64"
+  ipv6: "{{ docker_enable_ipv6 }}"
+  ip6tables: "{{ docker_enable_ipv6 }}"

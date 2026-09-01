@@ -3,6 +3,9 @@
 [![CI](https://github.com/unleftie/ansible-role-docker/actions/workflows/ci.yml/badge.svg)](https://github.com/unleftie/ansible-role-docker/actions/workflows/ci.yml)
 [![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/unleftie/ansible-role-docker/badge)](https://securityscorecards.dev/viewer/?uri=github.com/unleftie/ansible-role-docker)
 
+Thin wrapper role that applies the upstream [`geerlingguy.docker`](https://github.com/geerlingguy/ansible-role-docker) role.
+Override variables live in [vars/main.yml](vars/main.yml)
+
 ## Compatibility
 
 | Platform | Version |

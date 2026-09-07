@@ -39,6 +39,10 @@ ansible-galaxy install -r requirements.yml
 
 Example [playbook](main.yml)
 
+## Documentation
+
+- [Molecule tests](docs/molecule-testing.md)
+
 ## 📝 License
 
 This project is licensed under the [MIT](LICENSE).
